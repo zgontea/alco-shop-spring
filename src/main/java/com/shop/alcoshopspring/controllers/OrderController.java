@@ -30,6 +30,7 @@ public class OrderController {
 	@Secured({"ROLE_ADMIN", "ROLE_USER"})
 	@GetMapping("/id")
 	public Iterable<OrderDetail> getByUserIdWithStatusDraft(@RequestParam Long userId) {
+		System.err.println("/id");
 		Iterable<OrderDetail> orderDetails = null;
 		try {
 			Order order = orderManager.findByUserIdWithStatusDraft(userId);
@@ -43,6 +44,7 @@ public class OrderController {
 	@Secured({"ROLE_ADMIN", "ROLE_USER"})
 	@GetMapping("/userOrder")
 	public Iterable<Order> getAllOrdersByUserId(@RequestParam Long userId) {
+		System.err.println("/userOrder");
 		Iterable<Order> orders = null;
 		try {
 			orders = orderManager.findByUserId(userId);
