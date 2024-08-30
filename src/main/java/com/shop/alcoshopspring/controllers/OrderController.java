@@ -47,10 +47,13 @@ public class OrderController {
 		System.err.println("/userOrder");
 		Iterable<Order> orders = null;
 		try {
+			System.err.println("before finding orders");
 			orders = orderManager.findByUserId(userId);
+			System.err.println("after finding orders");
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
+		System.err.println("before returning orders");
 		return orders;
 	}
 
